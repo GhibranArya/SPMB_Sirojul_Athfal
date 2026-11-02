@@ -1,0 +1,34 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\User;
+use Illuminate\Database\Seeder;
+
+/**
+ * Akun awal untuk pengembangan lokal. GANTI kata sandi ini sebelum produksi.
+ */
+class UserSeeder extends Seeder
+{
+    public function run(): void
+    {
+        User::updateOrCreate(['email' => 'admin@amanah.sch.id'], [
+            'name' => 'Panitia PPDB',
+            'phone' => '081200000001',
+            'password' => 'admin12345',
+        ])->forceFill(['role' => 'admin'])->save();
+
+        // Kepala sekolah memakai peran admin (aplikasi belum punya peran terpisah).
+        User::updateOrCreate(['email' => 'kepsek@amanah.sch.id'], [
+            'name' => 'Kepala Sekolah',
+            'phone' => '081200000004',
+            'password' => 'kepsek12345',
+        ])->forceFill(['role' => 'admin'])->save();
+
+        User::updateOrCreate(['email' => 'peserta@amanah.sch.id'], [
+            'name' => 'Wali Murid',
+            'phone' => '081200000003',
+            'password' => 'peserta12345',
+        ])->forceFill(['role' => 'pendaftar'])->save();
+    }
+}
