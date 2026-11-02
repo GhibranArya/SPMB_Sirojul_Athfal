@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 $user = Auth::guard($guard)->user();
 
-                return redirect($user->role === 'admin' ? '/admin/pendaftar' : RouteServiceProvider::HOME);
+                return redirect($user->isStaf() ? '/admin/pendaftar' : RouteServiceProvider::HOME);
             }
         }
 

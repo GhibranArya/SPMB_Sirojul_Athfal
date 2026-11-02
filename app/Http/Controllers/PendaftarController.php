@@ -398,7 +398,7 @@ class PendaftarController extends Controller
     public function berkas(Request $request, Berkas $berkas)
     {
         $milikSaya = $berkas->pendaftaran->user_id === $request->user()->id;
-        abort_unless($milikSaya || $request->user()->isAdmin(), 403);
+        abort_unless($milikSaya || $request->user()->isStaf(), 403);
         abort_unless(Storage::exists($berkas->path), 404);
 
         return response()->file(Storage::path($berkas->path), [

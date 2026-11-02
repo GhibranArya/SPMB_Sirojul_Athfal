@@ -50,8 +50,21 @@ class User extends Authenticatable
         return $this->hasMany(Pendaftaran::class);
     }
 
+    /** Master admin: akses penuh panel (verifikasi, gelombang, seleksi, konten). */
     public function isAdmin(): bool
     {
         return $this->role === 'admin';
+    }
+
+    /** Kepala sekolah: melihat data pendaftar/ekspor dan mengelola konten situs, tanpa aksi verifikasi/seleksi/gelombang. */
+    public function isKepsek(): bool
+    {
+        return $this->role === 'kepsek';
+    }
+
+    /** Pengguna panel (admin atau kepala sekolah), bukan wali pendaftar. */
+    public function isStaf(): bool
+    {
+        return $this->isAdmin() || $this->isKepsek();
     }
 }

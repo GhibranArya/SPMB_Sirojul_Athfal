@@ -23,7 +23,7 @@ class EnsureRole
         }
 
         if (! in_array($user->role, $roles, true)) {
-            return redirect($user->isAdmin() ? '/admin/pendaftar' : '/pendaftar/dashboard');
+            return redirect($user->isStaf() ? '/admin/pendaftar' : '/pendaftar/dashboard');
         }
 
         view()->share('authUser', $user);

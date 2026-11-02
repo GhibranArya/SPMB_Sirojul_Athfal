@@ -15,9 +15,11 @@
             <nav aria-label="Menu admin">
                 <div class="grp">{{ config('sekolah.spmb') }}</div>
                 <a href="/admin/pendaftar" class="{{ $path === 'admin/pendaftar' ? 'active' : '' }}"><i class="fa-solid fa-users"></i> Pendaftar</a>
+                @if ($authUser->isAdmin())
                 <a href="/admin/hasil-seleksi" class="{{ $path === 'admin/hasil-seleksi' ? 'active' : '' }}"><i class="fa-solid fa-clipboard-check"></i> Hasil Seleksi</a>
                 <div class="grp">Pengaturan</div>
                 <a href="/admin/gelombang" class="{{ $path === 'admin/gelombang' ? 'active' : '' }}"><i class="fa-solid fa-calendar-days"></i> Gelombang &amp; Kuota</a>
+                @endif
                 <div class="grp">Konten Situs</div>
                 <a href="/admin/konten/profil" class="{{ $path === 'admin/konten/profil' ? 'active' : '' }}"><i class="fa-solid fa-address-card"></i> Profil &amp; Kontak</a>
                 <a href="/admin/konten/fasilitas" class="{{ $path === 'admin/konten/fasilitas' ? 'active' : '' }}"><i class="fa-solid fa-building"></i> Fasilitas</a>
@@ -28,7 +30,7 @@
             </nav>
             <div class="foot">
                 <b>{{ $authUser->name }}</b>
-                <span>Admin</span>
+                <span>{{ $authUser->isKepsek() ? 'Kepala Sekolah' : 'Admin' }}</span>
                 <a href="/ganti-sandi" class="link-btn" style="display:block;padding-left:0"><i class="fa-solid fa-key"></i> Ganti Kata Sandi</a>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf

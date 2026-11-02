@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/ganti-sandi', [AkunController::class, 'simpanSandi'])->middleware('throttle:10,1');
 });
 
-// Berkas (privat): pemilik atau admin
-Route::get('/berkas/{berkas}', [PendaftarController::class, 'berkas'])->middleware('role:pendaftar,admin')->name('berkas');
+// Berkas (privat): pemilik, admin, atau kepala sekolah
+Route::get('/berkas/{berkas}', [PendaftarController::class, 'berkas'])->middleware('role:pendaftar,admin,kepsek')->name('berkas');
 
 // Pendaftar
 Route::prefix('pendaftar')->middleware('role:pendaftar')->group(function () {
@@ -50,20 +50,24 @@ Route::prefix('pendaftar')->middleware('role:pendaftar')->group(function () {
     Route::get('/pengumuman', [PendaftarController::class, 'pengumuman']);
 });
 
-// Admin
-Route::prefix('admin')->middleware('role:admin')->group(function () {
+// Panel: master admin (penuh) dan kepala sekolah (lihat pendaftar, ekspor, kelola konten)
+Route::prefix('admin')->middleware('role:admin,kepsek')->group(function () {
     Route::get('/pendaftar', [AdminController::class, 'pendaftar']);
     Route::get('/pendaftar/export', [AdminController::class, 'exportCsv']);
-    Route::post('/pendaftar/{pendaftaran}/verifikasi', [AdminController::class, 'verifikasi']);
-    Route::post('/pendaftar/{pendaftaran}/reset-sandi', [AdminController::class, 'resetSandi']);
 
-    Route::get('/gelombang', [AdminController::class, 'gelombang']);
-    Route::post('/gelombang', [AdminController::class, 'simpanGelombangBaru']);
-    Route::put('/gelombang/{gelombang}', [AdminController::class, 'ubahGelombang']);
+    // Hanya master admin: verifikasi, reset sandi, gelombang, seleksi
+    Route::middleware('role:admin')->group(function () {
+        Route::post('/pendaftar/{pendaftaran}/verifikasi', [AdminController::class, 'verifikasi']);
+        Route::post('/pendaftar/{pendaftaran}/reset-sandi', [AdminController::class, 'resetSandi']);
 
-    Route::get('/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
-    Route::post('/hasil-seleksi', [AdminController::class, 'simpanHasil']);
-    Route::post('/hasil-seleksi/publikasi', [AdminController::class, 'publikasi']);
+        Route::get('/gelombang', [AdminController::class, 'gelombang']);
+        Route::post('/gelombang', [AdminController::class, 'simpanGelombangBaru']);
+        Route::put('/gelombang/{gelombang}', [AdminController::class, 'ubahGelombang']);
+
+        Route::get('/hasil-seleksi', [AdminController::class, 'hasilSeleksi']);
+        Route::post('/hasil-seleksi', [AdminController::class, 'simpanHasil']);
+        Route::post('/hasil-seleksi/publikasi', [AdminController::class, 'publikasi']);
+    });
 
     // Konten situs publik
     Route::prefix('konten')->group(function () {

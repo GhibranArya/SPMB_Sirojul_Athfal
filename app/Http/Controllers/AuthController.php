@@ -98,7 +98,7 @@ class AuthController extends Controller
 
     private function homeFor(string $role): string
     {
-        return $role === 'admin' ? '/admin/pendaftar' : '/pendaftar/dashboard';
+        return in_array($role, ['admin', 'kepsek'], true) ? '/admin/pendaftar' : '/pendaftar/dashboard';
     }
 
     /** 0812-3456-789, +62 812..., 62812... → 0812... */

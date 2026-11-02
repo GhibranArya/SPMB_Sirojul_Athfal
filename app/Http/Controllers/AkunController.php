@@ -15,7 +15,7 @@ class AkunController extends Controller
     {
         $user = $request->user();
 
-        return view($user->isAdmin() ? 'akun.ganti-sandi-admin' : 'akun.ganti-sandi-pendaftar', [
+        return view($user->isStaf() ? 'akun.ganti-sandi-admin' : 'akun.ganti-sandi-pendaftar', [
             'authUser' => $user,
             'wajib' => (bool) $user->must_change_password,
         ]);
@@ -42,7 +42,7 @@ class AkunController extends Controller
         $user->forceFill(['password' => $data['password'], 'must_change_password' => false])->save();
         $request->session()->regenerate();
 
-        return redirect($user->isAdmin() ? '/admin/pendaftar' : '/pendaftar/dashboard')->with('status', 'Kata sandi berhasil diganti.');
+        return redirect($user->isStaf() ? '/admin/pendaftar' : '/pendaftar/dashboard')->with('status', 'Kata sandi berhasil diganti.');
     }
 
     /** Petunjuk bagi yang lupa kata sandi: hubungi panitia lewat WhatsApp untuk dibuatkan sandi sementara. */

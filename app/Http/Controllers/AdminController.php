@@ -163,7 +163,7 @@ class AdminController extends Controller
     public function resetSandi(Request $request, Pendaftaran $pendaftaran): RedirectResponse
     {
         $akun = $pendaftaran->user;
-        if (! $akun || $akun->isAdmin()) {
+        if (! $akun || $akun->isStaf()) {
             return back()->with('error', 'Akun wali tidak ditemukan.');
         }
 

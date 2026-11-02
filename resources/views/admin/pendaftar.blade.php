@@ -65,6 +65,12 @@
 <p id="empty" class="empty" style="display:none"><span style="color:var(--gray-500)">Tidak ada pendaftar yang cocok dengan filter.</span></p>
 
 {{-- Modal detail & verifikasi --}}
+@if ($authUser->isKepsek())
+{{-- Kepala sekolah hanya membaca: tombol aksi disembunyikan (route-nya pun ditolak server). --}}
+<style>
+    #detail .modal-foot .btn:not(#b-tutup), #detail .aksi-admin, #detail #m-lock { display: none !important; }
+</style>
+@endif
 <div class="modal" id="detail" role="dialog" aria-modal="true" aria-labelledby="m-title">
     <div class="modal-box">
         <form id="vf" method="POST" data-once>
@@ -95,9 +101,11 @@
                         <div class="field-error" id="catatan-err" style="display:none"><i class="fa-solid fa-circle-exclamation"></i> Catatan wajib diisi.</div>
                     </div>
                 </div>
+                <div class="aksi-admin">
                 <div class="form-section" style="margin-top:24px">Akun wali</div>
                 <p style="font-size:.86rem;color:var(--gray-500);margin-bottom:10px">Wali lupa kata sandi? Buat kata sandi sementara, lalu sampaikan lewat WhatsApp. Kata sandi lama langsung tidak berlaku.</p>
                 <button type="submit" form="rs" class="btn btn-sm btn-outline-light" onclick="return confirm('Reset kata sandi akun wali ini? Kata sandi lama tidak akan berlaku lagi.')"><i class="fa-solid fa-key"></i> Reset kata sandi wali</button>
+                </div>
                 <p id="m-lock" style="display:none;margin-top:16px;font-size:.88rem;color:var(--gray-500)"><i class="fa-solid fa-lock"></i> Pendaftar ini tidak sedang menunggu verifikasi, jadi tidak dapat diperiksa lagi.</p>
             </div>
             <div class="modal-foot">
