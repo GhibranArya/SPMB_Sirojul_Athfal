@@ -50,7 +50,7 @@
                     {!! str_replace('Berakhlakul Karimah', '<span class="hl">Berakhlakul Karimah</span>', e($profil->visi)) !!}
                 </h1>
                 <p class="hx-desc">
-                    SMP Islam Sirojul Athfal berada di lingkungan yang kondusif untuk mendukung penyelenggaraan proses pembelajaran. Lingkungan sekolah memberikan suasana yang cukup nyaman bagi murid untuk mengikuti kegiatan pembelajaran maupun berbagai kegiatan pengembangan diri.
+                    SMP Islam Sirojul Athfal berada di lingkungan yang kondusif dan nyaman untuk belajar dan mengembangkan diri.
                 </p>
 
                 @if ($gelombang)
