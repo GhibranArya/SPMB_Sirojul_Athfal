@@ -26,44 +26,13 @@
 
     <main id="main" tabindex="-1">
 
-    <!-- HERO SECTION: foto kegiatan layar penuh sebagai latar -->
+    <!-- HERO SECTION: teks di kiri, foto kegiatan berbingkai di kanan -->
     @php
         $tgl = fn ($d) => \App\Models\Gelombang::tglId($d);
         $status = $gelombang?->statusJadwal();
     @endphp
     <section class="hx" id="beranda">
-        <div class="hx-bg" @if ($hero->isNotEmpty()) id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="Foto kegiatan sekolah" @endif>
-            @if ($hero->isNotEmpty())
-                @foreach ($hero as $i => $g)
-                    <figure class="hc-slide{{ $i === 0 ? ' is-active' : '' }}" role="group" aria-roledescription="slide" aria-label="Foto {{ $i + 1 }} dari {{ $hero->count() }}" data-caption="{{ $g->judul }}" @if ($i !== 0) aria-hidden="true" @endif>
-                        <img src="{{ asset($g->gambar) }}" alt="{{ $g->keterangan_gambar ?? $g->judul }}" style="object-position: {{ $g->posisi_gambar }};" @if ($i === 0) fetchpriority="high" @else loading="lazy" @endif>
-                    </figure>
-                @endforeach
-            @endif
-            <div class="hx-shade" aria-hidden="true"></div>
-
-            @if ($hero->isNotEmpty())
-                <div class="hx-dock">
-                    <div class="hx-dock-row">
-                        <span class="hx-caption-wrap"><i class="fa-solid fa-camera" aria-hidden="true"></i> <span class="hc-caption">{{ $hero->first()->judul }}</span></span>
-                        <div class="hx-ctrl">
-                            <button type="button" class="hc-arrow hc-prev" aria-label="Foto sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
-                            <button type="button" class="hc-toggle" aria-label="Jeda geser otomatis"><i class="fa-solid fa-pause"></i></button>
-                            <button type="button" class="hc-arrow hc-next" aria-label="Foto berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                    <div class="hc-thumbs">
-                        @foreach ($hero as $i => $g)
-                            <button type="button" class="hc-dot{{ $i === 0 ? ' is-active' : '' }}" aria-label="Tampilkan foto {{ $i + 1 }}: {{ $g->judul }}"@if ($i === 0) aria-current="true" @endif>
-                                <img src="{{ asset($g->gambar) }}" alt="" style="object-position: {{ $g->posisi_gambar }};" loading="lazy" draggable="false">
-                            </button>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
-        </div>
-
-        <div class="container hx-inner">
+        <div class="container hx-grid">
             <div class="hx-copy">
                 <div class="hx-badge">
                     @if (! $gelombang)
@@ -108,6 +77,35 @@
                     <!-- <a href="#ekstrakurikuler" class="btn btn-ghost-light btn-lg"><i class="fa-solid fa-book-open"></i> Pelajari Program Kami</a> -->
                 </div>
             </div>
+
+            @if ($hero->isNotEmpty())
+                <div class="hx-media" id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="Foto kegiatan sekolah">
+                    <div class="hx-frame">
+                        @foreach ($hero as $i => $g)
+                            <figure class="hc-slide{{ $i === 0 ? ' is-active' : '' }}" role="group" aria-roledescription="slide" aria-label="Foto {{ $i + 1 }} dari {{ $hero->count() }}" data-caption="{{ $g->judul }}" @if ($i !== 0) aria-hidden="true" @endif>
+                                <img src="{{ asset($g->gambar) }}" alt="{{ $g->keterangan_gambar ?? $g->judul }}" style="object-position: {{ $g->posisi_gambar }};" @if ($i === 0) fetchpriority="high" @else loading="lazy" @endif>
+                            </figure>
+                        @endforeach
+                    </div>
+                    <div class="hx-dock">
+                        <div class="hx-dock-row">
+                            <span class="hx-caption-wrap"><i class="fa-solid fa-camera" aria-hidden="true"></i> <span class="hc-caption">{{ $hero->first()->judul }}</span></span>
+                            <div class="hx-ctrl">
+                                <button type="button" class="hc-arrow hc-prev" aria-label="Foto sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                                <button type="button" class="hc-toggle" aria-label="Jeda geser otomatis"><i class="fa-solid fa-pause"></i></button>
+                                <button type="button" class="hc-arrow hc-next" aria-label="Foto berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="hc-thumbs">
+                            @foreach ($hero as $i => $g)
+                                <button type="button" class="hc-dot{{ $i === 0 ? ' is-active' : '' }}" aria-label="Tampilkan foto {{ $i + 1 }}: {{ $g->judul }}"@if ($i === 0) aria-current="true" @endif>
+                                    <img src="{{ asset($g->gambar) }}" alt="" style="object-position: {{ $g->posisi_gambar }};" loading="lazy" draggable="false">
+                                </button>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </section>
 
