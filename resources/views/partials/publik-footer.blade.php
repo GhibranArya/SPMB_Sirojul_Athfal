@@ -43,21 +43,21 @@
                 <h5>Informasi Kontak</h5>
                 <ul class="footer-contact">
                     <li>
-                        <i class="fa-solid fa-map-location-dot"></i>
+                        <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
                         <span>{{ $profil->alamat }}</span>
                     </li>
                     <li>
-                        <i class="fa-solid fa-id-card"></i>
+                        <i class="fa-solid fa-id-card" aria-hidden="true"></i>
                         <span>NPSN {{ $profil->npsn }}</span>
                     </li>
                     @if ($profil->telepon)
-                    <li><i class="fa-solid fa-phone"></i><span>{{ $profil->telepon }}</span></li>
+                    <li><i class="fa-solid fa-phone" aria-hidden="true"></i><span>{{ $profil->telepon }}</span></li>
                     @endif
                     @if ($profil->whatsapp)
-                    <li><i class="fa-brands fa-whatsapp"></i><span><a href="{{ $profil->waLink('Assalamualaikum, saya ingin bertanya tentang '.config('sekolah.spmb').' '.config('sekolah.nama').'.') }}" target="_blank" rel="noopener">{{ $profil->whatsapp }}</a> <small>(WhatsApp admin)</small></span></li>
+                    <li><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span><a href="{{ $profil->waLink('Assalamualaikum, saya ingin bertanya tentang '.config('sekolah.spmb').' '.config('sekolah.nama').'.') }}" target="_blank" rel="noopener">{{ $profil->whatsapp }}</a> <small>(WhatsApp admin)</small></span></li>
                     @endif
                     @if ($profil->email)
-                    <li><i class="fa-solid fa-envelope"></i><span>{{ $profil->email }}</span></li>
+                    <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>{{ $profil->email }}</span></li>
                     @endif
                 </ul>
             </div>

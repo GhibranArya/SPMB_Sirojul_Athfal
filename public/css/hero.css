@@ -83,7 +83,7 @@
   line-height: 1.14;
   color: #fff;
 }
-.hx-title .hl { color: var(--hx-gold); font-style: italic; }
+.hx-title .hl { color: var(--hx-gold); font-style: normal; }
 
 .hx-desc {
   max-width: 560px;

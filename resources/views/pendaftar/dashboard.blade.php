@@ -34,17 +34,17 @@
                 <h3>Daftar lagi di {{ $daftarLagi['nama'] }}</h3>
                 <p class="sub" style="margin:0">Pendaftaran {{ $daftarLagi['nama'] }} TA {{ $daftarLagi['tahun_ajaran'] }} sedang dibuka sampai {{ $daftarLagi['tutup'] }}. Anda dapat mengisi formulir baru memakai akun yang sama.</p>
             </div>
-            <a href="/pendaftar/form-data" class="btn btn-accent">Daftar Lagi <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="/pendaftar/form-data" class="btn btn-accent">Daftar Lagi <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
     </div>
 @endif
 
 @if (! $pendaftaran)
     <div class="card empty">
-        <div class="ico"><i class="fa-solid fa-file-pen"></i></div>
+        <div class="ico"><i class="fa-solid fa-file-pen" aria-hidden="true"></i></div>
         <h3>Anda belum mengisi formulir</h3>
         <p>Mulai dengan mengisi data calon siswa. Pendaftaran {{ $gelombang['nama'] }} TA {{ $gelombang['tahun_ajaran'] }} dibuka sampai {{ $gelombang['tutup'] }}.</p>
-        <a href="/pendaftar/form-data" class="btn btn-primary btn-lg">Mulai Isi Formulir <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="/pendaftar/form-data" class="btn btn-primary btn-lg">Mulai Isi Formulir <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
 @else
     <section class="hero-status">
@@ -60,10 +60,10 @@
             <div class="kode"><small>KODE PENDAFTARAN</small><b>{{ $pendaftaran['kode'] ?? 'Terbit setelah dikirim' }}</b></div>
             @if ($terkirim)
                 <a href="/pendaftar/bukti-pendaftaran" class="btn btn-accent btn-sm w-100" style="margin-top:10px">
-                    <i class="fa-solid fa-file-arrow-down"></i> Unduh Bukti Pendaftaran
+                    <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Unduh Bukti Pendaftaran
                 </a>
             @else
-                <a href="/pendaftar/form-data" class="btn btn-accent btn-sm w-100" style="margin-top:10px">Lanjutkan Formulir <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="/pendaftar/form-data" class="btn btn-accent btn-sm w-100" style="margin-top:10px">Lanjutkan Formulir <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             @endif
         </div>
     </section>
@@ -76,7 +76,7 @@
                 <div class="stepper">
                     @foreach ($steps as $i => $label)
                         <div class="step {{ $i < $now ? 'done' : ($i === $now ? 'now' : '') }}">
-                            <span class="dot">@if ($i < $now)<i class="fa-solid fa-check"></i>@else{{ $i + 1 }}@endif</span>
+                            <span class="dot">@if ($i < $now)<i class="fa-solid fa-check" aria-hidden="true"></i>@else{{ $i + 1 }}@endif</span>
                             {{ $label }}
                         </div>
                     @endforeach
@@ -88,17 +88,17 @@
                 <p class="sub">Selesaikan semua langkah agar berkas dapat diperiksa panitia.</p>
 
                 @if ($s === 'perbaikan')
-                    <div class="note-box"><b><i class="fa-solid fa-triangle-exclamation"></i> Catatan dari panitia</b>{{ $pendaftaran['catatan'] }}</div>
+                    <div class="note-box"><b><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Catatan dari panitia</b>{{ $pendaftaran['catatan'] }}</div>
                 @endif
 
                 <ul class="todo">
-                    <li class="ok"><i class="fa-solid fa-circle-check"></i> Buat akun pendaftaran</li>
-                    <li class="{{ $now > 1 ? 'ok' : '' }}"><i class="fa-{{ $now > 1 ? 'solid fa-circle-check' : 'regular fa-circle' }}"></i> Isi formulir data calon siswa dan orang tua
+                    <li class="ok"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Buat akun pendaftaran</li>
+                    <li class="{{ $now > 1 ? 'ok' : '' }}"><i class="fa-{{ $now > 1 ? 'solid fa-circle-check' : 'regular fa-circle' }}" aria-hidden="true"></i> Isi formulir data calon siswa dan orang tua
                         @if ($now <= 1)<a href="/pendaftar/form-data">Isi sekarang →</a>@endif</li>
                     @foreach ($jenisBerkas->where('wajib', true)->pluck('nama', 'kode') as $k => $nm)
                         @php $b = $berkas[$k]['status'] ?? 'kosong'; @endphp
                         <li class="{{ $b === 'valid' ? 'ok' : ($b === 'ditolak' ? 'warn' : '') }}">
-                            <i class="fa-{{ $b === 'valid' ? 'solid fa-circle-check' : ($b === 'ditolak' ? 'solid fa-circle-exclamation' : 'regular fa-circle') }}"></i>
+                            <i class="fa-{{ $b === 'valid' ? 'solid fa-circle-check' : ($b === 'ditolak' ? 'solid fa-circle-exclamation' : 'regular fa-circle') }}" aria-hidden="true"></i>
                             Unggah {{ $nm }}
                             @if ($b === 'ditolak')<a href="/pendaftar/upload-berkas">Unggah ulang →</a>
                             @elseif ($b === 'menunggu')<span class="st st-gold" style="margin-left:auto">Diperiksa</span>

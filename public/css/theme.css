@@ -70,12 +70,10 @@ h1, h2, h3, h4, h5 { color: var(--ink); }
   font-variation-settings: 'opsz' 96;
 }
 
-.hero-title .highlight,
-.section-title span {
-  color: var(--primary);
-  font-style: italic;
-  font-weight: 500;
-}
+/* Judul seksi polos: tanpa kata kunci miring berwarna lain (pola dua warna di tiap judul terasa template).
+   Penekanan hanya di hero beranda, satu kali. */
+.hero-title .highlight { color: var(--primary); font-weight: 500; }
+.section-title span { color: inherit; font-style: normal; font-weight: inherit; }
 
 .section-title { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 
@@ -467,4 +465,20 @@ h1, h2, h3, h4, h5 { color: var(--ink); }
     background: var(--accent); color: var(--white); font-weight: 600;
   }
   .navbar-nav.active .nav-daftar:hover { background: var(--accent-hover); color: var(--white); }
+}
+
+/* ---------- Pedoman antarmuka ---------- */
+h1, h2, h3 { text-wrap: balance; }
+a, button, .btn, label, select, summary { touch-action: manipulation; }
+table td, table th { font-variant-numeric: tabular-nums; }
+h1[id], h2[id], h3[id], section[id] { scroll-margin-top: 88px; }
+
+/* Hormati preferensi "kurangi gerakan" di semua halaman (termasuk yang memakai style.css dan auth.css) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

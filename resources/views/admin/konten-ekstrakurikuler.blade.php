@@ -11,7 +11,7 @@
         <h1>Ekstrakurikuler</h1>
         <p>Kegiatan yang tampil di carousel beranda, halaman Unit Pendidikan, dan footer. Urutan kecil tampil lebih dulu.</p>
     </div>
-    <button class="btn btn-primary" data-open="eform" data-mode="baru"><i class="fa-solid fa-plus"></i> Tambah Ekstrakurikuler</button>
+    <button class="btn btn-primary" data-open="eform" data-mode="baru"><i class="fa-solid fa-plus" aria-hidden="true"></i> Tambah Ekstrakurikuler</button>
 </div>
 
 <div class="tbl-wrap">
@@ -32,10 +32,10 @@
                     <td>{{ $e['waktu'] ?: '-' }}</td>
                     <td>{{ $e['pembimbing'] ?: '-' }}</td>
                     <td class="acts">
-                        <button class="btn btn-sm btn-outline-light" data-open="eform" data-mode="ubah" data-row='@json($e)'><i class="fa-solid fa-pen"></i> Ubah</button>
+                        <button class="btn btn-sm btn-outline-light" data-open="eform" data-mode="ubah" data-row='@json($e)'><i class="fa-solid fa-pen" aria-hidden="true"></i> Ubah</button>
                         <form action="/admin/konten/ekstrakurikuler/{{ $e['id'] }}" method="POST" style="display:inline" onsubmit="return confirm('Hapus ekstrakurikuler ini dari situs?')">
                             @csrf @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i> Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash" aria-hidden="true"></i> Hapus</button>
                         </form>
                     </td>
                 </tr>
@@ -57,11 +57,11 @@
             <input type="hidden" name="_id" value="{{ $editId }}">
             <div class="modal-head">
                 <h3 id="e-title" data-title>{{ $editId ? 'Ubah Ekstrakurikuler' : 'Tambah Ekstrakurikuler' }}</h3>
-                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body">
                 @if ($errors->any())
-                    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i><span>@foreach ($errors->all() as $e){{ $e }}<br>@endforeach</span></div>
+                    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>@foreach ($errors->all() as $e){{ $e }}<br>@endforeach</span></div>
                 @endif
 
                 <div class="form-section">Data kegiatan</div>

@@ -74,15 +74,16 @@ class KontenController extends Controller
             'telepon' => $kontak,
             'whatsapp' => $kontak,
             'email' => ['nullable', 'email', 'max:255'],
-            'instagram' => ['nullable', 'url', 'max:255'],
-            'tiktok' => ['nullable', 'url', 'max:255'],
-            'facebook' => ['nullable', 'url', 'max:255'],
-            'youtube' => ['nullable', 'url', 'max:255'],
+            'instagram' => ['nullable', 'url', 'starts_with:https://', 'max:255'],
+            'tiktok' => ['nullable', 'url', 'starts_with:https://', 'max:255'],
+            'facebook' => ['nullable', 'url', 'starts_with:https://', 'max:255'],
+            'youtube' => ['nullable', 'url', 'starts_with:https://', 'max:255'],
         ], [
             'required' => 'Kolom ini wajib diisi.',
             'regex' => 'Hanya angka, spasi, +, - dan tanda kurung.',
             'email.email' => 'Format email belum benar.',
             'url' => 'Isi dengan alamat lengkap, diawali https:// (mis. https://www.instagram.com/akun_sekolah).',
+            'starts_with' => 'Alamat harus diawali https:// (mis. https://www.instagram.com/akun_sekolah).',
         ]);
 
         $profil = ProfilYayasan::first() ?? new ProfilYayasan;

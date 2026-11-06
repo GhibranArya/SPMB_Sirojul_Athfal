@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
     @include('partials.panel-head')
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body class="panel">
     <a href="#main" class="skip-link">Lewati ke konten utama</a>
@@ -14,27 +15,27 @@
             </a>
             <nav aria-label="Menu admin">
                 <div class="grp">{{ config('sekolah.spmb') }}</div>
-                <a href="/admin/pendaftar" class="{{ $path === 'admin/pendaftar' ? 'active' : '' }}"><i class="fa-solid fa-users"></i> Pendaftar</a>
+                <a href="/admin/pendaftar" class="{{ $path === 'admin/pendaftar' ? 'active' : '' }}"><i class="fa-solid fa-users" aria-hidden="true"></i> Pendaftar</a>
                 @if ($authUser->isAdmin())
-                <a href="/admin/hasil-seleksi" class="{{ $path === 'admin/hasil-seleksi' ? 'active' : '' }}"><i class="fa-solid fa-clipboard-check"></i> Hasil Seleksi</a>
+                <a href="/admin/hasil-seleksi" class="{{ $path === 'admin/hasil-seleksi' ? 'active' : '' }}"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Hasil Seleksi</a>
                 <div class="grp">Pengaturan</div>
-                <a href="/admin/gelombang" class="{{ $path === 'admin/gelombang' ? 'active' : '' }}"><i class="fa-solid fa-calendar-days"></i> Gelombang &amp; Kuota</a>
+                <a href="/admin/gelombang" class="{{ $path === 'admin/gelombang' ? 'active' : '' }}"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Gelombang &amp; Kuota</a>
                 @endif
                 <div class="grp">Konten Situs</div>
-                <a href="/admin/konten/profil" class="{{ $path === 'admin/konten/profil' ? 'active' : '' }}"><i class="fa-solid fa-address-card"></i> Profil &amp; Kontak</a>
-                <a href="/admin/konten/fasilitas" class="{{ $path === 'admin/konten/fasilitas' ? 'active' : '' }}"><i class="fa-solid fa-building"></i> Fasilitas</a>
-                <a href="/admin/konten/galeri" class="{{ $path === 'admin/konten/galeri' ? 'active' : '' }}"><i class="fa-solid fa-images"></i> Galeri</a>
-                <a href="/admin/konten/ekstrakurikuler" class="{{ $path === 'admin/konten/ekstrakurikuler' ? 'active' : '' }}"><i class="fa-solid fa-people-group"></i> Ekstrakurikuler</a>
+                <a href="/admin/konten/profil" class="{{ $path === 'admin/konten/profil' ? 'active' : '' }}"><i class="fa-solid fa-address-card" aria-hidden="true"></i> Profil &amp; Kontak</a>
+                <a href="/admin/konten/fasilitas" class="{{ $path === 'admin/konten/fasilitas' ? 'active' : '' }}"><i class="fa-solid fa-building" aria-hidden="true"></i> Fasilitas</a>
+                <a href="/admin/konten/galeri" class="{{ $path === 'admin/konten/galeri' ? 'active' : '' }}"><i class="fa-solid fa-images" aria-hidden="true"></i> Galeri</a>
+                <a href="/admin/konten/ekstrakurikuler" class="{{ $path === 'admin/konten/ekstrakurikuler' ? 'active' : '' }}"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Ekstrakurikuler</a>
                 <div class="grp">Situs</div>
-                <a href="/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Website</a>
+                <a href="/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Lihat Website</a>
             </nav>
             <div class="foot">
                 <b>{{ $authUser->name }}</b>
                 <span>{{ $authUser->isKepsek() ? 'Kepala Sekolah' : 'Admin' }}</span>
-                <a href="/ganti-sandi" class="link-btn" style="display:block;padding-left:0"><i class="fa-solid fa-key"></i> Ganti Kata Sandi</a>
+                <a href="/ganti-sandi" class="link-btn" style="display:block;padding-left:0"><i class="fa-solid fa-key" aria-hidden="true"></i> Ganti Kata Sandi</a>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="link-btn"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button>
+                    <button type="submit" class="link-btn"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Keluar</button>
                 </form>
             </div>
         </aside>
@@ -43,13 +44,13 @@
 
             <div class="ad-top">
                 <div style="display:flex;gap:12px;align-items:center">
-                    <button type="button" class="ad-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="adSide"><i class="fa-solid fa-bars"></i></button>
-                    <div class="crumb">Admin / <b>@yield('crumb')</b></div>
+                    <button type="button" class="ad-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="adSide"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+                    <div class="crumb"><span class="crumb-root">Admin / </span><b>@yield('crumb')</b></div>
                 </div>
                 @php $ga = \App\Models\Gelombang::aktif(); @endphp
                 <div class="crumb">
                     @if ($ga)
-                        TA <b>{{ $ga->tahun_ajaran }}</b> · {{ $ga->nama }}
+                        <span class="crumb-ta">TA <b>{{ $ga->tahun_ajaran }}</b> · {{ $ga->nama }}</span>
                         <span class="st {{ $ga->sedangDibuka() ? 'st-green' : 'st-gray' }}" style="margin-left:6px">{{ $ga->sedangDibuka() ? 'Dibuka' : 'Ditutup' }}</span>
                     @else
                         <span class="st st-gray">Tidak ada gelombang aktif</span>

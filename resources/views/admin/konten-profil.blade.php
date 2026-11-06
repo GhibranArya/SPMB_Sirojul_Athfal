@@ -10,7 +10,7 @@
 </div>
 
 @if ($errors->any())
-    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i><span>Ada isian yang belum benar. Periksa kolom bertanda merah.</span></div>
+    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Ada isian yang belum benar. Periksa kolom bertanda merah.</span></div>
 @endif
 
 <form method="POST" action="/admin/konten/profil" data-once>
@@ -22,13 +22,13 @@
         <div class="field {{ $errors->has('visi') ? 'has-error' : '' }}">
             <label for="visi">Visi <span class="req">*</span></label>
             <textarea class="form-control" id="visi" name="visi" rows="3" required>{{ old('visi', $profil->visi) }}</textarea>
-            @error('visi')<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+            @error('visi')<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
         </div>
         <div class="field {{ $errors->has('misi') ? 'has-error' : '' }}">
             <label for="misi">Misi <span class="req">*</span></label>
             <textarea class="form-control" id="misi" name="misi" rows="12" required>{{ old('misi', $profil->misi) }}</textarea>
             <div class="hint">Satu butir misi per baris. Setiap baris menjadi satu kartu bernomor di halaman Profil.</div>
-            @error('misi')<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+            @error('misi')<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
         </div>
     </div>
 
@@ -38,12 +38,12 @@
             <div class="field full {{ $errors->has('alamat') ? 'has-error' : '' }}">
                 <label for="alamat">Alamat <span class="req">*</span></label>
                 <textarea class="form-control" id="alamat" name="alamat" rows="2" required>{{ old('alamat', $profil->alamat) }}</textarea>
-                @error('alamat')<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+                @error('alamat')<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
             </div>
             <div class="field {{ $errors->has('npsn') ? 'has-error' : '' }}">
                 <label for="npsn">NPSN</label>
                 <input class="form-control" id="npsn" name="npsn" value="{{ old('npsn', $profil->npsn) }}" maxlength="20">
-                @error('npsn')<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+                @error('npsn')<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
             </div>
         </div>
     </div>
@@ -55,17 +55,17 @@
             <div class="field {{ $errors->has('telepon') ? 'has-error' : '' }}">
                 <label for="telepon">Telepon</label>
                 <input class="form-control" id="telepon" name="telepon" value="{{ old('telepon', $profil->telepon) }}" placeholder="021-1234567" inputmode="tel">
-                @error('telepon')<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+                @error('telepon')<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
             </div>
             <div class="field {{ $errors->has('whatsapp') ? 'has-error' : '' }}">
                 <label for="whatsapp">WhatsApp panitia / admin sekolah</label>
                 <input class="form-control" id="whatsapp" name="whatsapp" value="{{ old('whatsapp', $profil->whatsapp) }}" placeholder="0812-3456-7890" inputmode="tel">
-                @error('whatsapp')<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+                @error('whatsapp')<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
             </div>
             <div class="field full {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="email">Email</label>
                 <input class="form-control" type="email" id="email" name="email" value="{{ old('email', $profil->email) }}" placeholder="info@sekolah.sch.id">
-                @error('email')<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+                @error('email')<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
             </div>
         </div>
     </div>
@@ -78,15 +78,15 @@
                 <div class="field {{ $errors->has($kolom) ? 'has-error' : '' }}">
                     <label for="{{ $kolom }}">{{ $label }}</label>
                     <input class="form-control" type="url" id="{{ $kolom }}" name="{{ $kolom }}" value="{{ old($kolom, $profil->{$kolom}) }}" placeholder="{{ $contoh }}" inputmode="url" autocomplete="off">
-                    @error($kolom)<div class="field-error"><i class="fa-solid fa-circle-exclamation"></i>{{ $message }}</div>@enderror
+                    @error($kolom)<div class="field-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>{{ $message }}</div>@enderror
                 </div>
             @endforeach
         </div>
     </div>
 
     <div class="form-actions">
-        <a href="/" target="_blank" rel="noopener" class="btn btn-white"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat situs</a>
-        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan perubahan</button>
+        <a href="/" target="_blank" rel="noopener" class="btn btn-white"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Lihat situs</a>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Simpan perubahan</button>
     </div>
 </form>
 @endsection

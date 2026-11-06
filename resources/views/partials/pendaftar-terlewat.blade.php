@@ -16,11 +16,11 @@
             @if ($lanjutKe)
                 <form action="/pendaftar/lanjutkan-gelombang" method="POST" data-once>
                     @csrf
-                    <button type="submit" class="btn btn-accent">Lanjutkan di {{ $lanjutKe['nama'] }} <i class="fa-solid fa-arrow-right"></i></button>
+                    <button type="submit" class="btn btn-accent">Lanjutkan di {{ $lanjutKe['nama'] }} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
                 </form>
             @endif
         </div>
     </div>
 @elseif ($terkunciPengumuman ?? false)
-    <div class="alert alert-error"><i class="fa-solid fa-lock"></i><span>Pengumuman {{ $gelombang['nama'] }} sudah terbit, jadi formulir dan berkas tidak dapat diubah lagi. Hubungi panitia bila ada kendala.</span></div>
+    <div class="alert alert-error"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Pengumuman {{ $gelombang['nama'] }} sudah terbit, jadi formulir dan berkas tidak dapat diubah lagi. Hubungi panitia bila ada kendala.</span></div>
 @endif

@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>Galeri Kegiatan | {{ config('sekolah.nama') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo/favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/galeri.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
 
@@ -19,7 +21,7 @@
 
     <main id="main" tabindex="-1">
 
-    <section class="section text-center" style="background-color: var(--bg-cream); padding-top: 140px; padding-bottom: 30px;">
+    <section class="section text-center hero-halaman" style="background-color: var(--bg-cream); padding-top: 140px; padding-bottom: 30px;">
         <div class="container">
             <div class="section-badge-sm" style="background: var(--white); border: 1px solid var(--primary-pale); padding: 8px 16px; border-radius: 50px;">
                 <i class="fa-solid fa-images" aria-hidden="true"></i> GALERI

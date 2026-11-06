@@ -24,14 +24,14 @@
 
 <div class="toolbar">
     <div class="search">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
         <input class="form-control" id="q" type="search" placeholder="Cari nama, kode, atau wali…">
     </div>
     <select class="form-control" id="fs" aria-label="Filter status">
         <option value="">Semua status</option>
         @foreach ($status as $k => $v)<option value="{{ $k }}">{{ $v[0] }}</option>@endforeach
     </select>
-    <a href="/admin/pendaftar/export?gelombang={{ $dipilih }}" class="btn btn-outline-light spacer"><i class="fa-solid fa-file-csv"></i> Ekspor CSV</a>
+    <a href="/admin/pendaftar/export?gelombang={{ $dipilih }}" class="btn btn-outline-light spacer"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> Ekspor CSV</a>
 </div>
 
 <div class="tbl-wrap">
@@ -52,7 +52,7 @@
                             data-id="{{ $r['id'] }}" data-nama="{{ $r['nama'] }}" data-kode="{{ $r['kode'] }}"
                             data-status="{{ $r['status'] }}" data-catatan="{{ $r['catatan'] }}"
                             data-siswa='@json($r['siswa'])' data-ortu='@json($r['ortu'])' data-docs='@json($r['docs'])'>
-                            <i class="fa-regular fa-eye"></i> Periksa
+                            <i class="fa-regular fa-eye" aria-hidden="true"></i> Periksa
                         </button>
                     </td>
                 </tr>
@@ -81,7 +81,7 @@
                     <h3 id="m-title">—</h3>
                     <div style="font-size:.85rem;color:var(--gray-500)"><code id="m-kode"></code> · <span id="m-status"></span></div>
                 </div>
-                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body">
                 <div class="form-section">Calon siswa</div>
@@ -98,21 +98,21 @@
                     <div class="field" style="margin:0">
                         <label for="catatan">Catatan perbaikan <span class="req">*</span></label>
                         <textarea class="form-control" id="catatan" name="catatan" placeholder="Jelaskan bagian yang perlu diperbaiki pendaftar…"></textarea>
-                        <div class="field-error" id="catatan-err" style="display:none"><i class="fa-solid fa-circle-exclamation"></i> Catatan wajib diisi.</div>
+                        <div class="field-error" id="catatan-err" style="display:none"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Catatan wajib diisi.</div>
                     </div>
                 </div>
                 <div class="aksi-admin">
                 <div class="form-section" style="margin-top:24px">Akun wali</div>
                 <p style="font-size:.86rem;color:var(--gray-500);margin-bottom:10px">Wali lupa kata sandi? Buat kata sandi sementara, lalu sampaikan lewat WhatsApp. Kata sandi lama langsung tidak berlaku.</p>
-                <button type="submit" form="rs" class="btn btn-sm btn-outline-light" onclick="return confirm('Reset kata sandi akun wali ini? Kata sandi lama tidak akan berlaku lagi.')"><i class="fa-solid fa-key"></i> Reset kata sandi wali</button>
+                <button type="submit" form="rs" class="btn btn-sm btn-outline-light" onclick="return confirm('Reset kata sandi akun wali ini? Kata sandi lama tidak akan berlaku lagi.')"><i class="fa-solid fa-key" aria-hidden="true"></i> Reset kata sandi wali</button>
                 </div>
-                <p id="m-lock" style="display:none;margin-top:16px;font-size:.88rem;color:var(--gray-500)"><i class="fa-solid fa-lock"></i> Pendaftar ini tidak sedang menunggu verifikasi, jadi tidak dapat diperiksa lagi.</p>
+                <p id="m-lock" style="display:none;margin-top:16px;font-size:.88rem;color:var(--gray-500)"><i class="fa-solid fa-lock" aria-hidden="true"></i> Pendaftar ini tidak sedang menunggu verifikasi, jadi tidak dapat diperiksa lagi.</p>
             </div>
             <div class="modal-foot">
                 <button type="button" class="btn btn-white" data-close id="b-tutup">Tutup</button>
                 <button type="button" class="btn btn-white" id="b-batal" style="display:none">Batal</button>
-                <button type="button" class="btn btn-outline-light" id="b-fix"><i class="fa-solid fa-rotate-left"></i> Minta Perbaikan</button>
-                <button type="button" class="btn btn-primary" id="b-ok"><i class="fa-solid fa-circle-check"></i> Setujui &amp; Verifikasi</button>
+                <button type="button" class="btn btn-outline-light" id="b-fix"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Minta Perbaikan</button>
+                <button type="button" class="btn btn-primary" id="b-ok"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Setujui &amp; Verifikasi</button>
             </div>
         </form>
         <form id="rs" method="POST" style="display:none">@csrf</form>
@@ -174,7 +174,7 @@
                 + (doc.status === 'ditolak' && doc.catatan ? ' <small style="color:#C53030">· ' + esc(doc.catatan) + '</small>' : '')
                 + '</span><span style="display:flex;gap:8px;align-items:center"><span class="st ' + b[1] + '">' + b[0] + '</span>'
                 + (has ? '<label class="fix-pick" style="display:none;font-size:.8rem;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" name="berkas_ditolak[]" value="' + doc.id + '"> Unggah ulang</label>'
-                    + '<a class="btn btn-sm btn-white" target="_blank" rel="noopener" href="/berkas/' + doc.id + '"><i class="fa-regular fa-eye"></i> Lihat</a>'
+                    + '<a class="btn btn-sm btn-white" target="_blank" rel="noopener" href="/berkas/' + doc.id + '"><i class="fa-regular fa-eye" aria-hidden="true"></i> Lihat</a>'
                     : '') + '</span></div>';
         });
         document.getElementById('m-docs').innerHTML = html;
@@ -202,7 +202,7 @@
         document.getElementById('b-batal').style.display = on ? '' : 'none';
         tombolFix.classList.toggle('btn-primary', on);
         tombolFix.classList.toggle('btn-outline-light', !on);
-        tombolFix.innerHTML = on ? '<i class="fa-solid fa-paper-plane"></i> Kirim Perbaikan' : '<i class="fa-solid fa-rotate-left"></i> Minta Perbaikan';
+        tombolFix.innerHTML = on ? '<i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Kirim Perbaikan' : '<i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Minta Perbaikan';
         document.getElementById('catatan-err').style.display = 'none';
     }
     document.getElementById('b-batal').addEventListener('click', function () { modePerbaikan(false); });

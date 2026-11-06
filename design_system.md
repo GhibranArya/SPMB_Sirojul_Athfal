@@ -1,5 +1,7 @@
 # Design System — SMP Islam Sirojul Athfal
 
+> **Pembaruan 3 Nov 2026:** tampilan diganti ke gaya **Tegas** (`public/css/tegas.css`, dimuat paling akhir di semua halaman). Latar putih/mint, hijau blok penuh dengan pola gelombang, aksen kuning, bingkai gelap 2px dengan bayangan keras, judul Bricolage Grotesque, hero beranda terbelah (teks kiri, foto kanan). Bagian di bawah yang menyebut krem, serif Fraunces, bintang 8 sudut, dan bingkai tipis sudah tidak berlaku; token terbaru ada di `:root` pada `tegas.css`.
+
 Dokumen ini merangkum tampilan yang **sudah ada** di aplikasi (per 30 Oktober 2026), dibaca dari `public/css/*.css`, layout Blade, dan view. Pakai sebagai acuan untuk halaman atau komponen baru agar tetap konsisten.
 
 **Karakter visual:** hangat, editorial, dan tepercaya dengan nuansa islami. Latar krem kertas, hijau zamrud sebagai warna utama, emas sebagai aksen kecil, judul berhuruf serif, dan pola bintang delapan sudut yang sangat tipis. Bentuknya persegi halus dengan bingkai tipis, hampir tanpa bayangan.

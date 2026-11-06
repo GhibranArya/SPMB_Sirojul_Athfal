@@ -18,10 +18,10 @@
 
     @if ($waLink)
         <a href="{{ $waLink }}" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">
-            <i class="fa-brands fa-whatsapp"></i> Hubungi Panitia lewat WhatsApp
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Hubungi Panitia lewat WhatsApp
         </a>
     @else
-        <div class="alert alert-success" style="background:#FBF3DE;border-color:#D29D29;color:#6B5210"><i class="fa-solid fa-circle-info"></i>
+        <div class="alert alert-success" style="background:#FBF3DE;border-color:#D29D29;color:#6B5210"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>
             <span>Hubungi panitia {{ config('sekolah.spmb') }} langsung di sekolah pada hari kerja untuk dibantu mereset kata sandi.</span></div>
     @endif
 

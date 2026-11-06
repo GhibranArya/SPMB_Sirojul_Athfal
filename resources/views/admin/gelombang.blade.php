@@ -15,7 +15,7 @@
         <h1>Gelombang &amp; Kuota</h1>
         <p>Atur periode pendaftaran dan kuota per tahun ajaran.</p>
     </div>
-    <button class="btn btn-primary" data-open="gform" data-fill="1" data-mode="baru"><i class="fa-solid fa-plus"></i> Tambah Gelombang</button>
+    <button class="btn btn-primary" data-open="gform" data-fill="1" data-mode="baru"><i class="fa-solid fa-plus" aria-hidden="true"></i> Tambah Gelombang</button>
 </div>
 
 <div class="tbl-wrap">
@@ -43,7 +43,7 @@
                     </td>
                     <td class="acts">
                         <button class="btn btn-sm btn-outline-light" data-open="gform" data-fill="1" data-mode="ubah" data-g='@json($g)'>
-                            <i class="fa-solid fa-pen"></i> Ubah
+                            <i class="fa-solid fa-pen" aria-hidden="true"></i> Ubah
                         </button>
                     </td>
                 </tr>
@@ -65,11 +65,11 @@
             <input type="hidden" name="_id" id="g-id" value="{{ $editId }}">
             <div class="modal-head">
                 <h3 id="g-title">{{ $editId ? 'Ubah gelombang' : 'Tambah Gelombang' }}</h3>
-                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body">
                 @if ($errors->any())
-                    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i>
+                    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
                         <span>@foreach ($errors->all() as $e){{ $e }}<br>@endforeach</span>
                     </div>
                 @endif
@@ -95,7 +95,7 @@
                         <input type="hidden" name="biaya_ada[{{ $kode }}]" value="1">
                         <div class="biaya-ed-head">Biaya {{ $nama }}</div>
                         <div class="biaya-rows"></div>
-                        <button type="button" class="btn btn-sm btn-outline-light biaya-add"><i class="fa-solid fa-plus"></i> Tambah biaya</button>
+                        <button type="button" class="btn btn-sm btn-outline-light biaya-add"><i class="fa-solid fa-plus" aria-hidden="true"></i> Tambah biaya</button>
                     </div>
                 @endforeach
                 <label class="check"><input type="checkbox" name="is_aktif" id="g-aktif" value="1" {{ old('is_aktif') ? 'checked' : '' }}> <span>Jadikan gelombang aktif (menonaktifkan gelombang lain)</span></label>

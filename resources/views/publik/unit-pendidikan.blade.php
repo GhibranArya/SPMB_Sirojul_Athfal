@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>Unit Pendidikan | {{ config('sekolah.nama') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo/favicon.png') }}">
 
@@ -15,7 +16,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         .matrix-table { width: 100%; border-collapse: collapse; margin-top: 30px; background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
@@ -70,6 +71,7 @@
         }
     </style>
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
 
@@ -78,10 +80,10 @@
     <main id="main" tabindex="-1">
 
     <!-- HERO UNIT PENDIDIKAN -->
-    <section class="page-hero pt-140 pb-60 text-center" style="background-color: var(--bg-cream);">
+    <section class="page-hero pt-140 pb-60 text-center hero-halaman" style="background-color: var(--bg-cream);">
         <div class="container">
             <div class="section-badge-sm mx-auto mb-3" style="width: max-content; max-width: 100%; background: var(--primary-pale); color: var(--primary); padding: 8px 16px; border-radius: 50px; font-weight: 600; font-size: 0.85rem;">
-                <i class="fa-solid fa-graduation-cap"></i> SMP ISLAM SIROJUL ATHFAL KABUPATEN BOGOR
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> SMP ISLAM SIROJUL ATHFAL KABUPATEN BOGOR
             </div>
             <h1 class="display-title mb-4" style="font-size: 2.5rem; font-weight: 800; color: var(--primary-dark); max-width: 800px; margin: 0 auto;">
                 Unit Pendidikan <span style="color: var(--primary);">SMP Islam Sirojul Athfal</span>
@@ -110,7 +112,7 @@
                     ['fa-hand-holding-heart', 'Infak Jumat', 'Menyisihkan sebagian uang saku untuk infak yang disalurkan bagi kegiatan sosial sekolah.'],
                 ] as [$ikon, $judul, $isi])
                     <div class="habit-card">
-                        <span class="habit-ico"><i class="fa-solid {{ $ikon }}"></i></span>
+                        <span class="habit-ico"><i class="fa-solid {{ $ikon }}" aria-hidden="true"></i></span>
                         <h4>{{ $judul }}</h4>
                         <p>{{ $isi }}</p>
                     </div>
@@ -139,7 +141,7 @@
                 @foreach ($eskul as $e)
                     <div class="eks-card">
                         <div class="eks-head">
-                            <div class="e-icon"><i class="fa-solid {{ $e['ikon'] }}"></i></div>
+                            <div class="e-icon"><i class="fa-solid {{ $e['ikon'] }}" aria-hidden="true"></i></div>
                             <div>
                                 <h4>{{ $e['nama'] }}</h4>
                                 <small>{{ $e['waktu'] }}</small>
@@ -150,18 +152,18 @@
                             @if (count($e['tujuan']) === 1)
                                 <p>{{ $e['tujuan'][0] }}</p>
                             @else
-                                <ul>@foreach ($e['tujuan'] as $t)<li><i class="fa-solid fa-circle-check"></i> {{ $t }}</li>@endforeach</ul>
+                                <ul>@foreach ($e['tujuan'] as $t)<li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> {{ $t }}</li>@endforeach</ul>
                             @endif
                             <h5>Target Pencapaian</h5>
                             @if (count($e['target']) === 1)
                                 <p>{{ $e['target'][0] }}</p>
                             @else
-                                <ul>@foreach ($e['target'] as $t)<li><i class="fa-solid fa-circle-check"></i> {{ $t }}</li>@endforeach</ul>
+                                <ul>@foreach ($e['target'] as $t)<li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> {{ $t }}</li>@endforeach</ul>
                             @endif
                             <h5>Profil Lulusan</h5>
                             <div class="eks-tags">@foreach ($e['profil'] as $p)<span>{{ $p }}</span>@endforeach</div>
                         </div>
-                        <div class="eks-foot"><i class="fa-solid fa-user"></i> Pembimbing: <strong>{{ $e['pembimbing'] }}</strong></div>
+                        <div class="eks-foot"><i class="fa-solid fa-user" aria-hidden="true"></i> Pembimbing: <strong>{{ $e['pembimbing'] }}</strong></div>
                     </div>
                 @endforeach
             </div>
@@ -203,8 +205,8 @@
             </div>
 
             <div class="text-center">
-                <a href="/login" class="btn btn-accent btn-lg"><i class="fa-solid fa-pen-to-square"></i> Formulir {{ config('sekolah.spmb') }} Online</a>
-                <a href="/biaya-pendaftaran" class="btn btn-outline-light btn-lg" style="margin-left:8px"><i class="fa-solid fa-receipt"></i> Gelombang &amp; Biaya</a>
+                <a href="/login" class="btn btn-accent btn-lg"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Formulir {{ config('sekolah.spmb') }} Online</a>
+                <a href="/biaya-pendaftaran" class="btn btn-outline-light btn-lg" style="margin-left:8px"><i class="fa-solid fa-receipt" aria-hidden="true"></i> Gelombang &amp; Biaya</a>
             </div>
         </div>
     </section>

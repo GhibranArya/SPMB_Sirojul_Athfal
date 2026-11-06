@@ -199,12 +199,23 @@ class AdminController extends Controller
             fputcsv($out, ['Kode', 'Nama Siswa', 'NIK', 'Status', 'Tgl Kirim', 'Orang Tua', 'No. HP']);
             foreach ($rows as $p) {
                 fputcsv($out, [
-                    $p->kode, $p->nama_siswa, "'".$p->nik, Pendaftaran::STATUS[$p->status][0],
-                    $p->submitted_at->format('Y-m-d H:i'), $p->nama_ibu ?: $p->nama_ayah, "'".$p->hp_ortu,
+                    $p->kode, $this->amankanCsv($p->nama_siswa), "'".$p->nik, Pendaftaran::STATUS[$p->status][0],
+                    $p->submitted_at->format('Y-m-d H:i'), $this->amankanCsv($p->nama_ibu ?: $p->nama_ayah), "'".$p->hp_ortu,
                 ]);
             }
             fclose($out);
         }, 'pendaftar-'.now()->format('Ymd').'.csv', ['Content-Type' => 'text/csv; charset=UTF-8']);
+    }
+
+    /**
+     * Mencegah CSV injection: teks isian pendaftar yang diawali = + - @ (atau tab/CR) akan dibaca Excel sebagai rumus,
+     * jadi diberi apostrof di depan agar tampil sebagai teks biasa.
+     */
+    private function amankanCsv(?string $nilai): string
+    {
+        $nilai = (string) $nilai;
+
+        return preg_match('/^[=+\-@\t\r]/', $nilai) ? "'".$nilai : $nilai;
     }
 
     // -------------------------------------------------------------- Gelombang

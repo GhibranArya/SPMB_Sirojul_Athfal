@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>Struktur Organisasi | {{ config('sekolah.nama') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo/favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .org { --wew: #0D6E3E; --koor: #D6264F; --fung: #1A87C9; max-width: 1040px; margin: 0 auto; }
         .org-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; padding: 12px 18px; margin-bottom: 28px; background: #fff; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: .85rem; font-weight: 600; color: var(--gray-700); }
@@ -62,6 +63,7 @@
         @media (max-width: 460px) { .org-row { grid-template-columns: 1fr; } .org-unit { padding: 12px; } }
     </style>
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
 
@@ -69,16 +71,16 @@
 
     <main id="main" tabindex="-1">
 
-    <section class="section text-center" style="background-color: var(--bg-cream); padding-top: 140px; padding-bottom: 40px;">
+    <section class="section text-center hero-halaman" style="background-color: var(--bg-cream); padding-top: 140px; padding-bottom: 40px;">
         <div class="container">
             <div class="section-badge-sm" style="background: var(--white); border: 1px solid var(--primary-pale); padding: 8px 16px; border-radius: 50px;">
-                <i class="fa-solid fa-sitemap"></i> TAHUN AJARAN {{ $s['tahun_ajaran'] }}
+                <i class="fa-solid fa-sitemap" aria-hidden="true"></i> TAHUN AJARAN {{ $s['tahun_ajaran'] }}
             </div>
             <h1 class="section-title" style="font-size: 2.6rem; max-width: 800px; margin: 0 auto 16px;">
                 Struktur <span>Organisasi</span> Sekolah
             </h1>
             <p class="section-desc">Madrasah Ibtidaiyah (MI) dan Sekolah Menengah Pertama (SMP) di bawah {{ config('sekolah.nama_yayasan') }}.</p>
-            <a href="{{ asset('docs/struktur-organisasi-mi-smp.pdf') }}" class="btn btn-outline-light" target="_blank" rel="noopener" style="margin-top: 14px;"><i class="fa-solid fa-file-pdf"></i> Unduh PDF</a>
+            <a href="{{ asset('docs/struktur-organisasi-mi-smp.pdf') }}" class="btn btn-outline-light" target="_blank" rel="noopener" style="margin-top: 14px;"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Unduh PDF</a>
         </div>
     </section>
 

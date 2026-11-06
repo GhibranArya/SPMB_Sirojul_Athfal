@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>Profil Sekolah - {{ config('sekolah.nama') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo/favicon.png') }}">
 
@@ -15,8 +16,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
 
@@ -29,12 +31,12 @@
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-container">
             <div class="breadcrumb">
-                <a href="/"><i class="fa-solid fa-house"></i> Beranda</a>
+                <a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Beranda</a>
                 <span class="separator">/</span>
                 <span class="current">Profil Sekolah</span>
             </div>
             <div class="hero-badge-pill">
-                <i class="fa-solid fa-star"></i> NPSN {{ $profil->npsn }}
+                <i class="fa-solid fa-star" aria-hidden="true"></i> NPSN {{ $profil->npsn }}
             </div>
             <h1 class="page-hero-title">Profil SMP Islam Sirojul Athfal</h1>
             <p class="page-hero-desc">
@@ -73,7 +75,7 @@
                     <div class="image-wrapper">
                         <img src="{{ asset('images/foto/gedung-sekolah.jpg') }}" alt="Gedung SMP Islam Sirojul Athfal" style="object-position: 40% 50%;" loading="lazy">
                         <div class="image-floating-badge">
-                            <div class="badge-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="badge-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
                             <div class="badge-info">
                                 <strong>Sarana dan Prasarana</strong>
                                 <p>Sekolah memiliki ruang kelas, perpustakaan, lapangan, IFP (Interactive Flat Panel), laptop, serta akses internet yang dapat dimanfaatkan sebagai sumber dan media pembelajaran.</p>
@@ -97,41 +99,41 @@
                 <div class="timeline-card">
                     <div class="card-top">
                         <div class="year-badge">1991</div>
-                        <div class="timeline-icon"><i class="fa-solid fa-home"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-home" aria-hidden="true"></i></div>
                     </div>
                     <h4>Didirikan</h4>
                     <p>SMP Islam Sirojul Athfal didirikan pada tahun 1991. Sekolah ini berdiri untuk memenuhi aspirasi masyarakat sekitar yang menginginkan adanya sekolah jenjang SMP di sekitar.</p>
-                    <div class="card-sub-badge"><i class="fa-solid fa-leaf"></i> Kabupaten Bogor</div>
+                    <div class="card-sub-badge"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Kabupaten Bogor</div>
                 </div>
 
                 <div class="timeline-card">
                     <div class="card-top">
                         <div class="year-badge">2001</div>
-                        <div class="timeline-icon"><i class="fa-solid fa-stamp"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-stamp" aria-hidden="true"></i></div>
                     </div>
                     <h4>Ijin Operasional</h4>
                     <p>Ijin operasional diterbitkan oleh Dinas Pendidikan Kabupaten Bogor pada tanggal 10 Juli 2001 dengan nomor 1855/I02.5/PR/2001.</p>
-                    <div class="card-sub-badge"><i class="fa-solid fa-building"></i> 10 Juli 2001</div>
+                    <div class="card-sub-badge"><i class="fa-solid fa-building" aria-hidden="true"></i> 10 Juli 2001</div>
                 </div>
 
                 <div class="timeline-card">
                     <div class="card-top">
                         <div class="year-badge">2025</div>
-                        <div class="timeline-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
                     </div>
                     <h4>Pramuka</h4>
                     <p>Juara Umum Tingkat Kwarran Bojonggede 2025</p>
-                    <div class="card-sub-badge"><i class="fa-solid fa-flask"></i> Ekstrakurikuler</div>
+                    <div class="card-sub-badge"><i class="fa-solid fa-flask" aria-hidden="true"></i> Ekstrakurikuler</div>
                 </div>
 
                 <div class="timeline-card highlighted">
                     <div class="card-top">
                         <div class="year-badge">2026</div>
-                        <div class="timeline-icon"><i class="fa-solid fa-book-open"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
                     </div>
                     <h4>Kurikulum Satuan Pendidikan</h4>
                     <p>Kurikulum Sekolah Menengah Pertama Islam Sirojul Athfal ditetapkan untuk dijalankan pada Tahun Ajaran 2026/2027.</p>
-                    <div class="card-sub-badge light"><i class="fa-solid fa-star"></i> 15 Juli 2026</div>
+                    <div class="card-sub-badge light"><i class="fa-solid fa-star" aria-hidden="true"></i> 15 Juli 2026</div>
                 </div>
             </div>
         </div>
@@ -149,14 +151,14 @@
             <div class="vm-visi">
                 <img class="vm-visi-bg" src="{{ asset('images/foto/halaman-pohon.jpg') }}" alt="" loading="lazy">
                 <div class="vm-visi-body">
-                    <div class="visi-badge"><i class="fa-solid fa-eye"></i> VISI SEKOLAH</div>
+                    <div class="visi-badge"><i class="fa-solid fa-eye" aria-hidden="true"></i> VISI SEKOLAH</div>
                     <blockquote class="vm-quote">“{{ $profil->visi }}”</blockquote>
                 </div>
             </div>
 
             <!-- Misi: kartu bernomor, dua kolom -->
             <div class="vm-misi-head">
-                <span class="misi-badge"><i class="fa-solid fa-bullseye"></i> MISI SEKOLAH</span>
+                <span class="misi-badge"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> MISI SEKOLAH</span>
             </div>
             <ol class="vm-misi-list">
                 @foreach ($profil->daftarMisi() as $misi)
@@ -187,7 +189,7 @@
                     ['fa-mosque', 'Berkarakter dan Berbasis Nilai Keagamaan', 'Kurikulum dikembangkan dengan mengintegrasikan nilai-nilai keimanan, ketakwaan, akhlakul karimah, kedisiplinan, tanggung jawab, dan kepedulian sosial dalam kehidupan sekolah.'],
                 ] as [$ikon, $judul, $isi])
                     <div class="value-card">
-                        <div class="val-icon"><i class="fa-solid {{ $ikon }}"></i></div>
+                        <div class="val-icon"><i class="fa-solid {{ $ikon }}" aria-hidden="true"></i></div>
                         <h4>{{ $judul }}</h4>
                         <p>{{ $isi }}</p>
                     </div>
@@ -262,21 +264,21 @@
 
             <div class="legal-grid">
                 <div class="legal-card">
-                    <div class="legal-icon"><i class="fa-solid fa-stamp"></i></div>
+                    <div class="legal-icon"><i class="fa-solid fa-stamp" aria-hidden="true"></i></div>
                     <h4>Ijin Operasional</h4>
                     <p>Ijin operasionalnya yang diterbitkan oleh Dinas Pendidikan Kabupaten Bogor pada tanggal 10 Juli 2001</p>
                     <div class="legal-badge-number">NO: 1855/I02.5/PR/2001</div>
                 </div>
 
                 <div class="legal-card">
-                    <div class="legal-icon"><i class="fa-solid fa-id-card"></i></div>
+                    <div class="legal-icon"><i class="fa-solid fa-id-card" aria-hidden="true"></i></div>
                     <h4>NPSN</h4>
                     <p>SMP swasta yang beralamat di Desa Kedung Waringin Kecamatan Bojong Gede Kabupaten Bogor Provinsi Jawa Barat</p>
                     <div class="legal-badge-number">NPSN {{ $profil->npsn }}</div>
                 </div>
 
                 <div class="legal-card">
-                    <div class="legal-icon"><i class="fa-solid fa-file-contract"></i></div>
+                    <div class="legal-icon"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
                     <h4>Penetapan Kurikulum</h4>
                     <p>Kurikulum Sekolah Menengah Pertama Islam Sirojul Athfal ditetapkan untuk dijalankan pada Tahun Ajaran 2026/2027.</p>
                     <div class="legal-badge-number">Bogor, 15 Juli 2026</div>

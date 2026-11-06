@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>Gelombang &amp; Biaya Pendaftaran | {{ config('sekolah.nama') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo/favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
         .bg-col > h2 { margin: 0 0 16px; padding: 14px 18px; border-radius: var(--radius-md); color: #fff; font-size: 1.15rem; letter-spacing: .03em; }
@@ -36,6 +37,7 @@
         @media (max-width: 820px) { .bg-grid, .bg-syarat { grid-template-columns: 1fr; } }
     </style>
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
 
@@ -43,19 +45,19 @@
 
     <main id="main" tabindex="-1">
 
-    <section class="section text-center" style="background-color: var(--bg-cream); padding-top: 140px; padding-bottom: 40px;">
+    <section class="section text-center hero-halaman" style="background-color: var(--bg-cream); padding-top: 140px; padding-bottom: 40px;">
         <div class="container">
             <div class="section-badge-sm" style="background: var(--white); border: 1px solid var(--primary-pale); padding: 8px 16px; border-radius: 50px;">
-                <i class="fa-solid fa-receipt"></i> {{ config('sekolah.spmb') }} @if ($tahun) TAHUN AJARAN {{ $tahun }} @endif
+                <i class="fa-solid fa-receipt" aria-hidden="true"></i> {{ config('sekolah.spmb') }} @if ($tahun) TAHUN AJARAN {{ $tahun }} @endif
             </div>
             <h1 class="section-title" style="font-size: 2.6rem; max-width: 820px; margin: 0 auto 16px;">
                 Gelombang &amp; <span>Biaya Pendaftaran</span>
             </h1>
             <p class="section-desc">Pendaftaran dibuka bergelombang. Pilih jenjang MI atau SMP, lalu daftar pada gelombang yang sedang dibuka.</p>
             <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px">
-                <a href="/login" class="btn btn-primary btn-lg"><i class="fa-solid fa-pen-to-square"></i> Daftar {{ config('sekolah.spmb') }} Online</a>
+                <a href="/login" class="btn btn-primary btn-lg"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Daftar {{ config('sekolah.spmb') }} Online</a>
                 @if ($profil->whatsapp)
-                    <a href="{{ $profil->waLink('Assalamualaikum, saya ingin bertanya tentang biaya '.config('sekolah.spmb').' '.config('sekolah.nama').'.') }}" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg"><i class="fa-brands fa-whatsapp"></i> Tanya Admin: {{ $profil->whatsapp }}</a>
+                    <a href="{{ $profil->waLink('Assalamualaikum, saya ingin bertanya tentang biaya '.config('sekolah.spmb').' '.config('sekolah.nama').'.') }}" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Tanya Admin: {{ $profil->whatsapp }}</a>
                 @endif
             </div>
         </div>

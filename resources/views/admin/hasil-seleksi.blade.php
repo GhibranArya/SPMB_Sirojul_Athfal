@@ -12,15 +12,15 @@
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
         @include('partials.admin-pilih-gelombang')
         @if ($terbit)
-            <span class="st st-green"><i class="fa-solid fa-bullhorn"></i> Sudah dipublikasikan</span>
+            <span class="st st-green"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Sudah dipublikasikan</span>
         @else
-            <button class="btn btn-accent" data-open="publish"><i class="fa-solid fa-bullhorn"></i> Publikasikan Pengumuman</button>
+            <button class="btn btn-accent" data-open="publish"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Publikasikan Pengumuman</button>
         @endif
     </div>
 </div>
 
 @if ($menunggu > 0)
-    <div class="alert" style="background:#FBF3DE;border-color:#D29D29;color:#6B5210"><i class="fa-solid fa-circle-info"></i>
+    <div class="alert" style="background:#FBF3DE;border-color:#D29D29;color:#6B5210"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>
         <span>{{ $menunggu }} pendaftar masih <b>Menunggu Verifikasi</b> dan belum muncul di sini. <a href="/admin/pendaftar?gelombang={{ $dipilih }}" style="font-weight:700;text-decoration:underline">Periksa sekarang</a></span></div>
 @endif
 
@@ -65,7 +65,7 @@
     @if (! $terbit && count($list))
         <div class="form-actions" style="border:0">
             <span style="font-size:.85rem;color:var(--gray-500)">Hasil baru terlihat oleh pendaftar setelah pengumuman dipublikasikan.</span>
-            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan Hasil</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Simpan Hasil</button>
         </div>
     @endif
 </form>
@@ -77,13 +77,13 @@
             <input type="hidden" name="gelombang_id" value="{{ $dipilih }}">
             <div class="modal-head">
                 <h3 id="p-title">Publikasikan pengumuman?</h3>
-                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body">
                 <p style="margin-bottom:12px">Setelah dipublikasikan, pendaftar dapat melihat hasilnya di akun masing-masing. Hasil tidak dapat diubah lagi.</p>
                 <p style="font-size:.9rem;color:var(--gray-500)">Pastikan semua hasil sudah <b>disimpan</b> dan jumlah <i>Diterima</i> tidak melebihi kuota.</p>
                 @if (array_sum($belumSelesai) > 0)
-                    <div class="alert" style="background:#FBF3DE;border-color:#D29D29;color:#6B5210;margin:12px 0 0"><i class="fa-solid fa-triangle-exclamation"></i>
+                    <div class="alert" style="background:#FBF3DE;border-color:#D29D29;color:#6B5210;margin:12px 0 0"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                         <span>Masih ada pendaftar yang belum selesai dan <b>tidak ikut</b> pengumuman ini:
                             {{ collect($belumSelesai)->filter()->map(fn ($n, $label) => $n.' '.$label)->implode(', ') }}.
                             Pendaftar Draft dapat melanjutkan di gelombang berikutnya.</span></div>

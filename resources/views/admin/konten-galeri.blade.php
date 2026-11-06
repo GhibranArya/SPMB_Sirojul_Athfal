@@ -11,7 +11,7 @@
         <h1>Galeri</h1>
         <p>Foto kegiatan di beranda. Foto yang bertanda <b>Hero</b> juga dipakai sebagai latar bergantian di bagian atas beranda.</p>
     </div>
-    <button class="btn btn-primary" data-open="gform" data-mode="baru"><i class="fa-solid fa-plus"></i> Tambah Foto</button>
+    <button class="btn btn-primary" data-open="gform" data-mode="baru"><i class="fa-solid fa-plus" aria-hidden="true"></i> Tambah Foto</button>
 </div>
 
 <div class="tbl-wrap">
@@ -30,10 +30,10 @@
                         @else<span class="st st-gray">Galeri saja</span>@endif
                     </td>
                     <td class="acts">
-                        <button class="btn btn-sm btn-outline-light" data-open="gform" data-mode="ubah" data-row='@json($g)'><i class="fa-solid fa-pen"></i> Ubah</button>
+                        <button class="btn btn-sm btn-outline-light" data-open="gform" data-mode="ubah" data-row='@json($g)'><i class="fa-solid fa-pen" aria-hidden="true"></i> Ubah</button>
                         <form action="/admin/konten/galeri/{{ $g['id'] }}" method="POST" style="display:inline" onsubmit="return confirm('Hapus foto ini dari galeri?')">
                             @csrf @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i> Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash" aria-hidden="true"></i> Hapus</button>
                         </form>
                     </td>
                 </tr>
@@ -60,11 +60,11 @@
             <input type="hidden" name="_id" value="{{ $editId }}">
             <div class="modal-head">
                 <h3 id="g-title" data-title>{{ $editId ? 'Ubah Foto' : 'Tambah Foto' }}</h3>
-                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+                <button type="button" class="modal-x" data-close aria-label="Tutup"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body">
                 @if ($errors->any())
-                    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i><span>@foreach ($errors->all() as $e){{ $e }}<br>@endforeach</span></div>
+                    <div class="alert alert-error"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>@foreach ($errors->all() as $e){{ $e }}<br>@endforeach</span></div>
                 @endif
 
                 <img data-preview="gambar" data-base="{{ url('/') }}/" class="thumb-lg" alt="Foto saat ini" style="display:none">

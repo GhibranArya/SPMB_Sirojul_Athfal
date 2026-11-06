@@ -17,11 +17,11 @@
             <a href="/fasilitas" class="{{ $path === 'fasilitas' ? 'active' : '' }}">Fasilitas</a>
             <a href="/unit-pendidikan" class="{{ $path === 'unit-pendidikan' ? 'active' : '' }}">Unit Pendidikan</a>
             <a href="/struktur-organisasi" class="{{ $path === 'struktur-organisasi' ? 'active' : '' }}">Struktur Organisasi</a>
-            <a href="/login" class="nav-daftar"><i class="fa-solid fa-user-plus"></i> Daftar {{ config('sekolah.spmb') }} Online</a>
+            <a href="/login" class="nav-daftar"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Daftar {{ config('sekolah.spmb') }} Online</a>
         </div>
 
         <div class="navbar-cta">
-            <a href="/login" class="btn btn-accent"><i class="fa-solid fa-user-plus"></i> Daftar {{ config('sekolah.spmb') }} Online</a>
+            <a href="/login" class="btn btn-accent"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Daftar {{ config('sekolah.spmb') }} Online</a>
         </div>
 
         <button type="button" class="navbar-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navbarNav">

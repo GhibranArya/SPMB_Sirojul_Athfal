@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>{{ config('sekolah.nama') }} · MI &amp; SMP Kabupaten Bogor</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo/favicon.png') }}">
 
@@ -15,10 +16,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/hero.css') }}">
     <link rel="stylesheet" href="{{ asset('css/galeri.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
 
@@ -47,9 +49,9 @@
                     <div class="hx-dock-row">
                         <span class="hx-caption-wrap"><i class="fa-solid fa-camera" aria-hidden="true"></i> <span class="hc-caption">{{ $hero->first()->judul }}</span></span>
                         <div class="hx-ctrl">
-                            <button type="button" class="hc-arrow hc-prev" aria-label="Foto sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
-                            <button type="button" class="hc-toggle" aria-label="Jeda geser otomatis"><i class="fa-solid fa-pause"></i></button>
-                            <button type="button" class="hc-arrow hc-next" aria-label="Foto berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                            <button type="button" class="hc-arrow hc-prev" aria-label="Foto sebelumnya"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                            <button type="button" class="hc-toggle" aria-label="Jeda geser otomatis"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+                            <button type="button" class="hc-arrow hc-next" aria-label="Foto berikutnya"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
                     <div class="hc-thumbs">
@@ -78,25 +80,25 @@
                 </div>
 
                 <h1 class="hx-title">
-                    {!! str_replace('Berakhlakul Karimah', '<span class="hl">Berakhlakul Karimah</span>', e($profil->visi)) !!}
+                    Murid <span class="hl">Berakhlakul Karimah</span>, Berprestasi dan Mandiri
                 </h1>
                 <p class="hx-desc">
-                    SMP Islam Sirojul Athfal berada di lingkungan yang kondusif untuk mendukung penyelenggaraan proses pembelajaran. Lingkungan sekolah memberikan suasana yang cukup nyaman bagi murid untuk mengikuti kegiatan pembelajaran maupun berbagai kegiatan pengembangan diri.
+                    SMP Islam Sirojul Athfal berada di lingkungan yang kondusif dan nyaman untuk belajar serta mengembangkan diri.
                 </p>
 
                 @if ($gelombang)
                     <dl class="hx-jadwal" aria-label="Jadwal {{ config('sekolah.spmb') }} {{ $gelombang->nama }} {{ $gelombang->tahun_ajaran }}">
                         <div>
-                            <dt><i class="fa-solid fa-calendar-check"></i> Pendaftaran</dt>
+                            <dt><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Pendaftaran</dt>
                             <dd>{{ $tgl($gelombang->tgl_buka) }} – {{ $tgl($gelombang->tgl_tutup) }}</dd>
                         </div>
                         <div>
-                            <dt><i class="fa-solid fa-bullhorn"></i> Pengumuman</dt>
+                            <dt><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Pengumuman</dt>
                             <dd>{{ $tgl($gelombang->tgl_pengumuman) }}</dd>
                         </div>
                         @if ($gelombang->daftar_ulang_mulai)
                             <div>
-                                <dt><i class="fa-solid fa-file-signature"></i> Daftar ulang</dt>
+                                <dt><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Daftar ulang</dt>
                                 <dd>{{ $tgl($gelombang->daftar_ulang_mulai) }}@if ($gelombang->daftar_ulang_selesai) – {{ $tgl($gelombang->daftar_ulang_selesai) }}@endif</dd>
                             </div>
                         @endif
@@ -104,8 +106,8 @@
                 @endif
 
                 <div class="hx-actions">
-                    <a href="/login" class="btn btn-accent btn-lg">Daftar Sekarang <i class="fa-solid fa-arrow-right"></i></a>
-                    <!-- <a href="#ekstrakurikuler" class="btn btn-ghost-light btn-lg"><i class="fa-solid fa-book-open"></i> Pelajari Program Kami</a> -->
+                    <a href="/login" class="btn btn-accent btn-lg">Daftar Sekarang <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <!-- <a href="#ekstrakurikuler" class="btn btn-ghost-light btn-lg"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Pelajari Program Kami</a> -->
                 </div>
             </div>
         </div>
@@ -140,7 +142,7 @@
     <section class="section" id="unit" style="padding-bottom: 10px;">
         <div class="container">
             <div class="section-header text-center">
-                <div class="section-badge-sm"><i class="fa-solid fa-school-flag"></i> {{ mb_strtoupper(config('sekolah.nama_yayasan')) }}</div>
+                <div class="section-badge-sm"><i class="fa-solid fa-school-flag" aria-hidden="true"></i> {{ mb_strtoupper(config('sekolah.nama_yayasan')) }}</div>
                 <h2 class="section-title">Dua Unit <span>Pendidikan</span></h2>
                 <p class="section-desc">Pendaftaran {{ config('sekolah.spmb') }} online tersedia untuk Madrasah Ibtidaiyah (MI) dan Sekolah Menengah Pertama (SMP).</p>
             </div>
@@ -149,27 +151,27 @@
                     @foreach (config('struktur.unit') as $kode => $u)
                         <article class="unit-col">
                             <div class="unit-col-top">
-                                <span class="unit-col-ico"><i class="fa-solid {{ $kode === 'MI' ? 'fa-book-quran' : 'fa-graduation-cap' }}"></i></span>
+                                <span class="unit-col-ico"><i class="fa-solid {{ $kode === 'MI' ? 'fa-book-quran' : 'fa-graduation-cap' }}" aria-hidden="true"></i></span>
                                 <span class="unit-col-tag">{{ $kode === 'MI' ? 'Madrasah Ibtidaiyah' : 'Sekolah Menengah Pertama' }}</span>
                             </div>
                             <h3>{{ config('sekolah.unit.'.$kode) }}</h3>
                             <div class="unit-col-head">
-                                <i class="fa-solid fa-user-tie"></i>
+                                <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
                                 <div>
                                     <small>{{ preg_replace('/\s+(MI|SMP)$/', '', $u['pimpinan']['jabatan']) }}</small>
                                     <b>{{ $u['pimpinan']['nama'] }}</b>
                                 </div>
                             </div>
                             <div class="unit-col-act">
-                                <a href="/login" class="btn btn-primary">Daftar {{ $kode }} <i class="fa-solid fa-arrow-right"></i></a>
-                                <a href="/biaya-pendaftaran#{{ strtolower($kode) }}" class="unit-col-link"><i class="fa-solid fa-receipt"></i> Gelombang &amp; Biaya</a>
+                                <a href="/login" class="btn btn-primary">Daftar {{ $kode }} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                <a href="/biaya-pendaftaran#{{ strtolower($kode) }}" class="unit-col-link"><i class="fa-solid fa-receipt" aria-hidden="true"></i> Gelombang &amp; Biaya</a>
                             </div>
                         </article>
                     @endforeach
                 </div>
                 <div class="unit-panel-foot">
-                    <span><i class="fa-solid fa-school-flag"></i> Satu yayasan, dua unit pendidikan</span>
-                    <a href="/struktur-organisasi" class="link-more">Lihat Struktur Organisasi <i class="fa-solid fa-arrow-right"></i></a>
+                    <span><i class="fa-solid fa-school-flag" aria-hidden="true"></i> Satu yayasan, dua unit pendidikan</span>
+                    <a href="/struktur-organisasi" class="link-more">Lihat Struktur Organisasi <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -179,7 +181,7 @@
     <section class="section" id="gelombang" style="padding-top: 50px; padding-bottom: 20px;">
         <div class="container">
             <div class="section-header text-center">
-                <div class="section-badge-sm"><i class="fa-solid fa-calendar-days"></i> {{ config('sekolah.spmb') }} TAHUN AJARAN {{ $daftarGelombang->first()->tahun_ajaran }}</div>
+                <div class="section-badge-sm"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> {{ config('sekolah.spmb') }} TAHUN AJARAN {{ $daftarGelombang->first()->tahun_ajaran }}</div>
                 <h2 class="section-title">Gelombang <span>Pendaftaran</span></h2>
                 <p class="section-desc">Pendaftaran dibuka dalam {{ $daftarGelombang->count() }} gelombang. Biaya tiap gelombang berbeda untuk MI dan SMP.</p>
             </div>
@@ -199,7 +201,7 @@
                             <div><dt>Pendaftaran</dt><dd>{{ $tgl($g->tgl_buka) }} – {{ $tgl($g->tgl_tutup) }}</dd></div>
                             <div><dt>Pengumuman</dt><dd>{{ $tgl($g->tgl_pengumuman) }}</dd></div>
                         </dl>
-                        <a href="/biaya-pendaftaran#gelombang-{{ $g->id }}" class="gb-detail">Lihat detail &amp; biaya <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="/biaya-pendaftaran#gelombang-{{ $g->id }}" class="gb-detail">Lihat detail &amp; biaya <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
                 @endforeach
             </div>
@@ -261,13 +263,13 @@
                 </div>
                 <div class="sambutan-content">
                     <div class="section-badge-sm">
-                        <i class="fa-solid fa-school"></i> PROFIL SEKOLAH
+                        <i class="fa-solid fa-school" aria-hidden="true"></i> PROFIL SEKOLAH
                     </div>
                     <h3>Analisis <span>Letak Geografis</span></h3>
                     <p>
                         SMP Islam Sirojul Athfal didirikan pada tahun 1991 dan mendapatkan ijin operasionalnya yang diterbitkan oleh Dinas Pendidikan Kabupaten Bogor pada tanggal 10 Juli 2001 dengan nomor 1855/I02.5/PR/2001. Sekolah ini berdiri untuk memenuhi aspirasi masyarakat sekitar yang menginginkan adanya sekolah jenjang SMP di sekitar.
                     </p>
-                    <a href="/profil" class="link-more">Profil Sekolah <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="/profil" class="link-more">Profil Sekolah <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -286,7 +288,7 @@
             </div>
 
             <div class="eks-carousel" id="eksCarousel" role="region" aria-roledescription="carousel" aria-label="Ekstrakurikuler">
-                <button type="button" class="eks-arrow eks-prev" aria-label="Ekstrakurikuler sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                <button type="button" class="eks-arrow eks-prev" aria-label="Ekstrakurikuler sebelumnya"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
                 <div class="eks-track" tabindex="0">
                     @foreach ($eskul as $i => $e)
                         <article class="unit-card eks-slide" role="group" aria-roledescription="slide" aria-label="{{ $i + 1 }} dari {{ count($eskul) }}">
@@ -303,7 +305,7 @@
                                 <p class="clamp-4">{{ $e['tujuan'][0] ?? '' }}</p>
                                 <ul class="feature-list">
                                     @foreach (array_slice($e['target'], 0, 2) as $t)
-                                        <li><i class="fa-solid fa-circle-check"></i> <span class="clamp-3">{{ $t }}</span></li>
+                                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span class="clamp-3">{{ $t }}</span></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -313,12 +315,12 @@
                         </article>
                     @endforeach
                 </div>
-                <button type="button" class="eks-arrow eks-next" aria-label="Ekstrakurikuler berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                <button type="button" class="eks-arrow eks-next" aria-label="Ekstrakurikuler berikutnya"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
             </div>
             <div class="eks-dots" id="eksDots"></div>
 
             <div class="text-center" style="margin-top: 32px;">
-                <a href="/unit-pendidikan#ekstrakurikuler" class="link-more">Seluruh Ekstrakurikuler <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="/unit-pendidikan#ekstrakurikuler" class="link-more">Seluruh Ekstrakurikuler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
@@ -338,28 +340,28 @@
             <div class="keunggulan-grid">
                 <div class="keunggulan-card">
                     <div class="card-icon-wrapper">
-                        <i class="fa-solid fa-mosque"></i>
+                        <i class="fa-solid fa-mosque" aria-hidden="true"></i>
                     </div>
                     <h4>Program Keagamaan dan Pembiasaan Harian</h4>
                     <p>Kegiatan Shalat Dhuha, Shalat Zuhur berjamaah, tadarus dan membaca Al-Qur'an, pembelajaran Tajwid, hafalan doa, serta kegiatan keagamaan lainnya dilaksanakan sebagai bagian dari upaya membangun budaya sekolah yang religius dan membentuk akhlakul karimah murid.</p>
                 </div>
                 <div class="keunggulan-card">
                     <div class="card-icon-wrapper">
-                        <i class="fa-solid fa-book-journal-whills"></i>
+                        <i class="fa-solid fa-book-journal-whills" aria-hidden="true"></i>
                     </div>
                     <h4>Literasi dan Numerasi</h4>
                     <p>Dalam mendukung peningkatan kemampuan akademik, sekolah juga mengembangkan budaya literasi dan numerasi melalui kegiatan pembiasaan.</p>
                 </div>
                 <div class="keunggulan-card">
                     <div class="card-icon-wrapper">
-                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
                     </div>
                     <h4>Sarana dan Prasarana</h4>
                     <p>Sekolah memiliki ruang kelas, perpustakaan, lapangan, IFP (Interactive Flat Panel), laptop, serta akses internet yang dapat dimanfaatkan sebagai sumber dan media pembelajaran.</p>
                 </div>
                 <div class="keunggulan-card">
                     <div class="card-icon-wrapper">
-                        <i class="fa-solid fa-leaf"></i>
+                        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
                     </div>
                     <h4>Lingkungan Sekolah</h4>
                     <p>Lingkungan sekolah yang aman, bersih, tertib, dan nyaman menjadi salah satu faktor pendukung dalam menciptakan suasana belajar yang efektif.</p>

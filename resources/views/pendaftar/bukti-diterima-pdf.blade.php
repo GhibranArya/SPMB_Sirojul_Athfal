@@ -35,6 +35,7 @@
         .sign td { width: 50%; vertical-align: top; font-size: 9.5px; }
         .foot { position: fixed; bottom: 0; left: 0; right: 0; border-top: 1px solid #E4DDCB; padding-top: 5px; font-size: 8px; color: #718096; text-align: center; }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
     <div class="head">

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>Fasilitas | {{ config('sekolah.nama') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo/favicon.png') }}">
 
@@ -15,7 +16,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tambahan kecil khusus halaman fasilitas -->
     <style>
@@ -28,6 +29,7 @@
         .f-list li i { color: var(--primary); margin-top: 3px; }
     </style>
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tegas.css') }}">
 </head>
 <body>
 
@@ -36,10 +38,10 @@
     <main id="main" tabindex="-1">
 
     <!-- HERO FASILITAS -->
-    <section class="section text-center" style="background-color: var(--bg-cream); padding-top: 140px;">
+    <section class="section text-center hero-halaman" style="background-color: var(--bg-cream); padding-top: 140px;">
         <div class="container">
             <div class="section-badge-sm" style="background: var(--white); border: 1px solid var(--primary-pale); padding: 8px 16px; border-radius: 50px;">
-                <i class="fa-solid fa-building-columns"></i> SARANA DAN PRASARANA
+                <i class="fa-solid fa-building-columns" aria-hidden="true"></i> SARANA DAN PRASARANA
             </div>
             <h1 class="section-title" style="font-size: 2.8rem; max-width: 800px; margin: 0 auto 20px;">
                 Sarana dan <span>Prasarana</span>
@@ -63,7 +65,7 @@
             <div class="sarpras-grid">
                 @foreach ($fasilitas as $f)
                     <div class="sarpras-item">
-                        <div class="s-icon"><i class="fa-solid {{ $f->ikon ?? 'fa-building' }}"></i></div>
+                        <div class="s-icon"><i class="fa-solid {{ $f->ikon ?? 'fa-building' }}" aria-hidden="true"></i></div>
                         <span>{{ $f->nama }}</span>
                     </div>
                 @endforeach
@@ -85,21 +87,21 @@
         <div class="container grid-3 text-left">
             <div class="stat-mini-card" style="border-top: 4px solid var(--primary); text-align: left;">
                 <div class="badge-icon" style="margin-bottom: 20px;">
-                    <i class="fa-solid fa-school"></i>
+                    <i class="fa-solid fa-school" aria-hidden="true"></i>
                 </div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 12px;">Lingkungan yang Kondusif</h4>
                 <p style="font-size: 0.85rem; color: var(--gray-500); line-height: 1.6;">SMP Islam Sirojul Athfal berada di lingkungan yang kondusif untuk mendukung penyelenggaraan proses pembelajaran. Lingkungan sekolah memberikan suasana yang cukup nyaman bagi murid untuk mengikuti kegiatan pembelajaran maupun berbagai kegiatan pengembangan diri.</p>
             </div>
             <div class="stat-mini-card" style="border-top: 4px solid var(--accent); text-align: left;">
                 <div class="badge-icon" style="background: #FFF9E6; color: var(--accent); margin-bottom: 20px;">
-                    <i class="fa-solid fa-seedling"></i>
+                    <i class="fa-solid fa-seedling" aria-hidden="true"></i>
                 </div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 12px;">Potensi Lingkungan Sekitar</h4>
                 <p style="font-size: 0.85rem; color: var(--gray-500); line-height: 1.6;">Potensi lingkungan sekitar sekolah dimanfaatkan sebagai sumber belajar kontekstual yang dapat mendukung pengalaman belajar murid.</p>
             </div>
             <div class="stat-mini-card" style="border-top: 4px solid var(--primary-light); text-align: left;">
                 <div class="badge-icon" style="margin-bottom: 20px;">
-                    <i class="fa-solid fa-leaf"></i>
+                    <i class="fa-solid fa-leaf" aria-hidden="true"></i>
                 </div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 12px;">Aman, Bersih, Tertib, dan Nyaman</h4>
                 <p style="font-size: 0.85rem; color: var(--gray-500); line-height: 1.6;">Lingkungan sekolah yang aman, bersih, tertib, dan nyaman menjadi salah satu faktor pendukung dalam menciptakan suasana belajar yang efektif.</p>
@@ -111,17 +113,17 @@
     <section class="section" id="lokasi">
         <div class="container grid-2 align-center">
             <div>
-                <div class="section-badge-sm"><i class="fa-solid fa-location-dot"></i> Analisis Letak Geografis</div>
+                <div class="section-badge-sm"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Analisis Letak Geografis</div>
                 <h2 class="section-title">SMP Islam Sirojul Athfal Kabupaten Bogor</h2>
                 <p class="paragraph-text">Sebagai salah satu SMP swasta yang beralamat di Jl. KH. Muh Sanusi Kp. Lio Masjid RT 04/03 Desa Kedung Waringin Kecamatan Bojong Gede Kabupaten Bogor Provinsi Jawa Barat dengan NPSN 20200558 sudah turut serta menyelenggarakan layanan dan memajukan pendidikan Kabupaten Bogor selama 24 tahun dan sudah meluluskan 21 angkatan alumni.</p>
 
-                <a href="https://www.google.com/maps/search/?api=1&query=SMP+Islam+Sirojul+Athfal+Kedung+Waringin+Bojong+Gede" target="_blank" rel="noopener" class="btn btn-outline-light" style="margin-top: 10px;"><i class="fa-solid fa-map-location-dot"></i> Buka Petunjuk Arah di Google Maps</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=SMP+Islam+Sirojul+Athfal+Kedung+Waringin+Bojong+Gede" target="_blank" rel="noopener" class="btn btn-outline-light" style="margin-top: 10px;"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Buka Petunjuk Arah di Google Maps</a>
             </div>
             <div class="sejarah-image-box">
                 <div class="image-wrapper" style="height: 400px;">
                     <img src="{{ asset('images/foto/halaman-sekolah.jpg') }}" alt="Halaman dan deretan ruang kelas SMP Islam Sirojul Athfal" style="width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%;" loading="lazy">
                     <div class="image-floating-badge" style="justify-content: center; text-align: center; flex-direction: column; gap: 5px;">
-                        <div style="color: var(--primary); font-size: 2rem;"><i class="fa-solid fa-location-dot"></i></div>
+                        <div style="color: var(--primary); font-size: 2rem;"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
                         <h4 style="font-size: 1.1rem; color: var(--gray-900);">SMP Islam Sirojul Athfal</h4>
                         <p style="font-size: 0.85rem; color: var(--gray-500);">Desa Kedung Waringin Kecamatan Bojong Gede Kabupaten Bogor</p>
                     </div>

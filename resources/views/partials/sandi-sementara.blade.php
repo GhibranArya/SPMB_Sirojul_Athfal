@@ -13,9 +13,9 @@
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
             <code id="sandi-tmp" style="font-size:1.4rem;letter-spacing:.12em;padding:8px 16px;background:var(--paper-deep);border:1px dashed var(--accent);border-radius:6px">{{ $s['sandi'] }}</code>
-            <button type="button" class="btn btn-sm btn-outline-light" id="salin-sandi"><i class="fa-regular fa-copy"></i> Salin</button>
+            <button type="button" class="btn btn-sm btn-outline-light" id="salin-sandi"><i class="fa-regular fa-copy" aria-hidden="true"></i> Salin</button>
             @if ($s['wa'])
-                <a class="btn btn-sm btn-primary" target="_blank" rel="noopener" href="https://wa.me/{{ $s['wa'] }}?text={{ rawurlencode($pesan) }}"><i class="fa-brands fa-whatsapp"></i> Kirim lewat WhatsApp</a>
+                <a class="btn btn-sm btn-primary" target="_blank" rel="noopener" href="https://wa.me/{{ $s['wa'] }}?text={{ rawurlencode($pesan) }}"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Kirim lewat WhatsApp</a>
             @endif
         </div>
     </div>
